@@ -6,7 +6,7 @@ This project does not use OpenCV or any other imaging computer vision library, i
 
 **Head Tracking**
 ------
-Head tracking works by generating 5 separate optical flow textures each only a small section of the video at the designated locations (and at a reduced resolution) to increase performance. Then by computing the average velocity at each location we get the XY vector tracker for that location (when there is no movement the tracker returns to X0,Y0).
+Head tracking works by generating 5 separate optical flow textures each only a small section of the video at the designated locations (and at a reduced resolution to increase performance). Then by computing the average velocity at each location we get the XY vector tracker for that location (when there is no movement the tracker returns to X0,Y0).
 
 <img src="https://github.com/BluePengcho/Camera-Optical-Flow-Tracking-Into-VTube-Studio/blob/main/Images/CameraOpticalFlowTrackingDiagram.png" width="70%" height="70%">
 
