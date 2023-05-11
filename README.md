@@ -10,13 +10,11 @@ Head tracking works by generating 5 separate optical flow textures each only a s
 
 <img src="https://github.com/BluePengcho/Camera-Optical-Flow-Tracking-Into-VTube-Studio/blob/main/Images/CameraOpticalFlowTrackingDiagram.png" width="70%" height="70%">
 
-By generating 5 separate optical flow textures each only a small section of the video at the designated locations (and at a reduced resolution to increase performance). Then by computing the average velocity at each location we get the XY vector tracker for that location (when there is no movement the tracker returns to X0,Y0).
-
 For the Left and Right trackers (green) we only get the Y component and for the Top and Bottom trackers (red) we only get the X component. And for the centre tracker (yellow) we get both the X & Y components. 
 
 Then by getting the average vector (pink) from each of the trackers we are able to generate and providing a more accurate movement tracking in the X & Y axis for the whole video. 
 
-Then converting those values to the respective VTube Studio parameters and sending them on to VTube Studio. 
+Then converting those values to the respective VTube Studio parameters and sending them onto VTube Studio. 
 
 **Note:** Unfortunately at the moment slow camera movements create a greater optical flow value and therefore larger vectors than fast camera movements. Creating mismatched movement/tracking data in VTube Studio this still needs to be improved.
 
