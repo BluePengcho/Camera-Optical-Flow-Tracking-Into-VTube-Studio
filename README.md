@@ -1,4 +1,4 @@
-# Camera-Optical-Flow-Tracking-Into-VTube-Studio
+# Camera Optical Flow Tracking Into VTube Studio
 
 This project uses the [Unity3D-CameraOpticalFlow](https://github.com/Bonjour-Interactive-Lab/Unity3D-CameraOpticalFlow) unity package which is a GPU based optical flow system to generate the movement data. This project does not use OpenCV or any other imaging computer vision library, it mainly uses shaders to generate the data and seems to be resource light?? (this still needs more testing). 
 
