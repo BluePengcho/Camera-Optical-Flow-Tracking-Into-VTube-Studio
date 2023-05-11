@@ -6,9 +6,9 @@ This project uses the [Unity3D-CameraOpticalFlow](https://github.com/Bonjour-Int
 ------
 Head tracking works by generating 5 separate optical flow textures each only a small section of the video at the designated locations (and at a reduced resolution) to increase performance. Then by computing the average velocity at each location we get the XY vector tracker for that location (when there is no movement the tracker returns to X0,Y0).
 
-<img src="https://github.com/BluePengcho/Open_Source_Hand_Tracking_Live2D_Model/blob/main/Reference_Images/Skeleton.png" width="40%" height="40%">
+<img src="https://github.com/BluePengcho/Camera-Optical-Flow-Tracking-Into-VTube-Studio/blob/main/Images/CameraOpticalFlowTrackingDiagram.png" width="70%" height="70%">
 
-By generating 5 separate optical flow textures each only a small section of the video at the designated locations (and at a reduced resolution) to increase performance. Then by computing the average velocity at each location we get the XY vector tracker for that location (when there is no movement the tracker returns to X0,Y0).
+By generating 5 separate optical flow textures each only a small section of the video at the designated locations (and at a reduced resolution to increase performance). Then by computing the average velocity at each location we get the XY vector tracker for that location (when there is no movement the tracker returns to X0,Y0).
 
 For the Left and Right trackers (green) we only get the Y component and for the Top and Bottom trackers (red) we only get the X component. And for the centre tracker (yellow) we get both the X & Y components. 
 
