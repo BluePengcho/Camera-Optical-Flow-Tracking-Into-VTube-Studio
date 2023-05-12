@@ -12,11 +12,11 @@ Head tracking works by generating 5 separate optical flow textures each only a s
 
 For the Left and Right trackers (green) we only get the Y component and for the Top and Bottom trackers (red) we only get the X component. And for the centre tracker (yellow) we get both the X & Y components. 
 
-Then by getting the average vector (pink) from each of the trackers we are able to generate and providing a more accurate movement tracking in the X & Y axis for the whole video. 
+Then by getting the average vector (pink) from each of the trackers we are able to generate and provide more accurate movement tracking in the X & Y axis for the whole video. 
 
 Then converting those values to the respective VTube Studio parameters and sending them onto VTube Studio. 
 
-**Note:** Head tracking sensitiviy can be adjusted with the **Lambda** and **Threshold** sliders(sliders values are currently not saved after runtime so please change the defult slider values in the inspector after runtime to save the values). 
+**Note:** Head tracking sensitiviy can be adjusted with the **Lambda** and **Threshold** sliders(sliders values are currently not saved after runtime so please change the defult slider values in the inspector after runtime to save the values). For more sensative camera tracking set the Lambda & Threshold slider values to 0.
 
 **Note2:** Unfortunately at the moment slow camera movements create a greater optical flow value and therefore larger vectors than fast camera movements. Creating mismatched movement/tracking data in VTube Studio this still needs to be improved.
 
@@ -24,11 +24,11 @@ Then converting those values to the respective VTube Studio parameters and sendi
 
 **Eye Tracking**
 ------
-Eye tracking works by looks at the area on the video with the most motion. This is deduce by generated an optical flow texture of the entire video (this texture is blurred and has a reduced texture size to increase performance). The generated texture is comprised of a Red and Green layer, the Red layer is movement in the X axis and the Green layer is movement in the Y axis. By combining the Red and Green layers we the create a black and white image with the area/pixel with the highest contrast/brightness having the greatest amount of movement that frame. So by computing where this brightest area/pixel is we are able to deduce the X & Y location on the video with the greatest movement (the blue tracker) and essentially simulate where the user would/could be looking. We then smooth the blue tracker movement twice, first with the black tracker then secondly with the white Tracker. Then finally convert the X & Y values of the white tracker to the respective VTube Studio parameters and send it onto VTube Studio. 
+Eye tracking works by looks at the area on the video with the most motion. This is deduce by generated an optical flow texture of the entire video (this texture is blurred and has a reduced texture size to increase performance). The generated texture is comprised of a red and green layer, the red layer is movement in the X axis and the green layer is movement in the Y axis. By combining the red and green layers we the create a black and white image with the area/pixel with the highest contrast/brightness having the greatest amount of movement that frame. So by computing where this brightest area/pixel is we are able to deduce the X & Y location on the video with the greatest movement (the blue tracker) and essentially simulate where the user would/could be looking. We then smooth the blue tracker movement twice, first with the black tracker then secondly with the white Tracker. Then finally convert the X & Y values of the white tracker to the respective VTube Studio parameters and send it onto VTube Studio. 
 
 **Webcam/Video Input**
 ------
-Tracking input can be from either Webcam or Video(.mp4 or other Unity supported video format). 
+Tracking input can be either from Webcam or Video(.mp4 or other Unity supported video format). 
 
 **Webcam Input**: disable the 'Video Input' game object and enable the 'Webcam Input' game object and sellected the desired webcam in the webcam component found in the inspector.
 
@@ -38,31 +38,29 @@ Tracking input can be from either Webcam or Video(.mp4 or other Unity supported 
 **Head Tracking Configurable Settings**
 ------
 The VTube Studio parameter values can be adjusted in the 'Head Tracking' game object and its 'HeadTracking' script component for the following values:-
-XLive2dMin
-XLive2dMmax
-YLive2dMin	
-YLive2dMax
+- XLive2dMin
+- XLive2dMmax
+- YLive2dMin	
+- YLive2dMax
 
 The output values for X and Y can be inverted with toggles in the 'Head Tracking' game object and its 'HeadTracking' script component.
 
-
-
 Eye Tracking Configurable Settings
 ------
-Eye Tracking behaviour can be changed in the 'Eye Tracking Optical Flow Controller' game object and its 'EyeOpticalFlow' script component by adjusting the Lambda and the Threshold slider values.
+Eye Tracking behaviour can be changed in the 'Eye Tracking Optical Flow Controller' game object and its 'EyeOpticalFlow' script component by adjusting the Lambda and the Threshold slider values (in the inspector not the UI sliders).
 
 Recommended values are :-
-Lambda: 0.004
-Threshold: 0.085
+- Lambda: 0.004
+- Threshold: 0.085
 
 Eye Tracking Smoothness can be adjusted in the 'Eye Tracking' game object and its 'EyeTracking' script component by adjusting the 'Smooth Speed' Value. It can also be adjusted more in the 'Eye Tracking' game object and its 'maximumScript' script component by adjusting the 'Smooth Speed' value.
 
-Eye tracking Jittering can be adjusted in the 'Eye Tracking'  game object and its 'maximumScript' script component by adjusting the 'Set Distance' value.
+Eye tracking Jittering can be adjusted in the 'Eye Tracking' game object and its 'maximumScript' script component by adjusting the 'Set Distance' value.
 
 The VTube Studio parameter values can be adjusted in the 'Eye Tracking' game object and its 'EyeTracking' script component for the following values:-
-XLive2dMin
-XLive2dMmax
-YLive2dMin
-YLive2dMax
+- XLive2dMin
+- XLive2dMmax
+- YLive2dMin
+- YLive2dMax
 
 The output values for X and Y can be inverted with toggles in the 'Eye Tracking' game object and its 'EyeTracking' script component.
