@@ -16,7 +16,7 @@ Then by getting the average vector (pink) from each of the trackers we are able 
 
 Then converting those values to the respective VTube Studio parameters and sending them onto VTube Studio. 
 
-**Note:** Head tracking sensitiviy can be adjusted with the **Lambda** and **Threshold** sliders(sliders values are currently not saved after runtime so please change the defult slider values in the inspector after runtime to save the values). For more sensative camera tracking set the Lambda & Threshold slider values to 0.
+**Note:** Head tracking sensitiviy can be adjusted with the **Lambda** and **Threshold** sliders (sliders values are currently not saved after runtime so please change the defult slider values in the inspector after runtime to save the values). For more sensative camera tracking set the Lambda & Threshold slider values to 0.
 
 **Note2:** Unfortunately at the moment slow camera movements create a greater optical flow value and therefore larger vectors than fast camera movements. Creating mismatched movement/tracking data in VTube Studio this still needs to be improved.
 
@@ -24,7 +24,7 @@ Then converting those values to the respective VTube Studio parameters and sendi
 
 **Eye Tracking**
 ------
-Eye tracking works by looks at the area on the video with the most motion. This is deduce by generated an optical flow texture of the entire video (this texture is blurred and has a reduced texture size to increase performance). The generated texture is comprised of a red and green layer, the red layer is movement in the X axis and the green layer is movement in the Y axis. By combining the red and green layers we create a black and white image with the area/pixel with the highest contrast/brightness having the greatest amount of movement that frame. So by computing where this brightest area/pixel is we are able to deduce the X & Y location on the video with the greatest movement (the blue tracker) and essentially simulate where the user would/could be looking. We then smooth the blue tracker movement twice, first with the black tracker then secondly with the white Tracker. Then finally convert the X & Y values of the white tracker to the respective VTube Studio parameters and send it onto VTube Studio. 
+Eye tracking works by looks at the area on the video with the most motion. This is deduce by generated an optical flow texture of the entire video (this texture is blurred and has a reduced texture size to increase performance). The generated texture is comprised of a red and green layer, the red layer is movement in the X axis and the green layer is movement in the Y axis. By combining the red and green layers we create a black and white image with the area/pixel with the highest contrast/brightness having the greatest amount of movement that frame. So by computing where this brightest area/pixel is we are able to deduce the X & Y location on the video with the greatest movement (the blue tracker) and essentially simulate where the user would/could be looking. We then smooth the blue tracker movement twice, first with the black tracker then secondly with the white tracker. Then finally convert the X & Y values of the white tracker to the respective VTube Studio parameters and send it onto VTube Studio. 
 
 **Webcam/Video Input**
 ------
