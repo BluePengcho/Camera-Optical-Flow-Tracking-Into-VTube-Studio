@@ -16,13 +16,24 @@ Then by getting the average vector (pink) from each of the trackers we are able 
 
 Then converting those values to the respective VTube Studio parameters and sending them onto VTube Studio. 
 
-**Note:** Unfortunately at the moment slow camera movements create a greater optical flow value and therefore larger vectors than fast camera movements. Creating mismatched movement/tracking data in VTube Studio this still needs to be improved.
+**Note:** Head tracking sensitiviy can be adjusted with the **Lambda** and **Threshold** sliders(sliders values are currently not saved after runtime so please change the defult slider values in the inspector after runtime to save the values). 
 
-**Note2:** Having more trackers at more points on the video would probably produce more accurate movement data but at an increased performance cost.  
+**Note2:** Unfortunately at the moment slow camera movements create a greater optical flow value and therefore larger vectors than fast camera movements. Creating mismatched movement/tracking data in VTube Studio this still needs to be improved.
+
+**Note3:** Having more trackers at more points on the video would probably produce more accurate movement data but at an increased performance cost.  
 
 **Eye Tracking**
 ------
 Eye tracking works by looks at the area on the video with the most motion. This is deduce by generated an optical flow texture of the entire video (this texture is blurred and has a reduced texture size to increase performance). The generated texture is comprised of a Red and Green layer, the Red layer is movement in the X axis and the Green layer is movement in the Y axis. By combining the Red and Green layers we create a black and white image with the area/pixel with the highest contrast/brightness having the greatest amount of movement that frame. So by computing where this brightest area/pixel is we are able to deduce the X & Y location on the video with the greatest movement and essentially simulate where the user would/could be looking. Then finally convert the values to the respective VTube Studio parameters and send it to VTube Studio. 
+
+**Webcam/Video Input**
+------
+Tracking input can be from either Webcam or Video(.mp4 or other Unity supported video format). 
+
+**Webcam Input**: disable the 'Video Input' game object and enable the 'Webcam Input' game object and sellected the desired webcam in the webcam component found in the inspector.
+
+**Video Input**: disable the 'Webcam Input' game object and enable the 'Video Input' game object. And chose the desired video in the Video component found in the inspector. (Note: Video must be in the unity project's folder)
+
 
 **Head Tracking Configurable Settings**
 ------
