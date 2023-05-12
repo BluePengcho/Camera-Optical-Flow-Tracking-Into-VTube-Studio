@@ -24,7 +24,7 @@ Then converting those values to the respective VTube Studio parameters and sendi
 
 **Eye Tracking**
 ------
-Eye tracking works by looks at the area on the video with the most motion. This is deduce by generated an optical flow texture of the entire video (this texture is blurred and has a reduced texture size to increase performance). The generated texture is comprised of a Red and Green layer, the Red layer is movement in the X axis and the Green layer is movement in the Y axis. By combining the Red and Green layers we create a black and white image with the area/pixel with the highest contrast/brightness having the greatest amount of movement that frame. So by computing where this brightest area/pixel is we are able to deduce the X & Y location on the video with the greatest movement and essentially simulate where the user would/could be looking. Then finally convert the values to the respective VTube Studio parameters and send it to VTube Studio. 
+Eye tracking works by looks at the area on the video with the most motion. This is deduce by generated an optical flow texture of the entire video (this texture is blurred and has a reduced texture size to increase performance). The generated texture is comprised of a Red and Green layer, the Red layer is movement in the X axis and the Green layer is movement in the Y axis. By combining the Red and Green layers we the create a black and white image with the area/pixel with the highest contrast/brightness having the greatest amount of movement that frame. So by computing where this brightest area/pixel is we are able to deduce the X & Y location on the video with the greatest movement (the blue tracker) and essentially simulate where the user would/could be looking. We then smooth the blue tracker movement twice, first with the black tracker then secondly with the white Tracker. Then finally convert the X & Y values of the white tracker to the respective VTube Studio parameters and send it onto VTube Studio. 
 
 **Webcam/Video Input**
 ------
@@ -32,7 +32,7 @@ Tracking input can be from either Webcam or Video(.mp4 or other Unity supported 
 
 **Webcam Input**: disable the 'Video Input' game object and enable the 'Webcam Input' game object and sellected the desired webcam in the webcam component found in the inspector.
 
-**Video Input**: disable the 'Webcam Input' game object and enable the 'Video Input' game object. And chose the desired video in the Video component found in the inspector. (Note: Video must be in the unity project's folder)
+**Video Input**: disable the 'Webcam Input' game object and enable the 'Video Input' game object. And chose the desired video in the Video component found in the inspector. (Note: the video must be in the unity project's folder)
 
 
 **Head Tracking Configurable Settings**
@@ -49,13 +49,13 @@ The output values for X and Y can be inverted with toggles in the 'Head Tracking
 
 Eye Tracking Configurable Settings
 ------
-Eye Tracking behaviour can be changed in the 'Eye Tracking Optical Flow Controller' game object and its 'Optical Flow' script component by adjusting the Lambda and the Threshold slider values.
+Eye Tracking behaviour can be changed in the 'Eye Tracking Optical Flow Controller' game object and its 'EyeOpticalFlow' script component by adjusting the Lambda and the Threshold slider values.
 
 Recommended values are :-
 Lambda: 0.004
 Threshold: 0.085
 
-Eye Tracking Smoothness can be adjusted in the 'Eye Tracking' game object and its 'Eye Tracking' script component by adjusting the 'Smooth Speed' Value. It can also be adjusted more in the 'Eye Tracking' game object and its 'maximumScript' script component by adjusting the 'Smooth Speed' value.
+Eye Tracking Smoothness can be adjusted in the 'Eye Tracking' game object and its 'EyeTracking' script component by adjusting the 'Smooth Speed' Value. It can also be adjusted more in the 'Eye Tracking' game object and its 'maximumScript' script component by adjusting the 'Smooth Speed' value.
 
 Eye tracking Jittering can be adjusted in the 'Eye Tracking'  game object and its 'maximumScript' script component by adjusting the 'Set Distance' value.
 
