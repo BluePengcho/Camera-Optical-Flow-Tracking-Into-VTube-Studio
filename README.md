@@ -34,7 +34,6 @@ Tracking input can be either from Webcam or Video(.mp4 or other Unity supported 
 
 **Video Input**: disable the 'Webcam Input' game object and enable the 'Video Input' game object. And chose the desired video in the Video component found in the inspector. (Note: the video must be in the unity project's folder)
 
-
 **Head Tracking Configurable Settings**
 ------
 The VTube Studio parameter values can be adjusted in the 'Head Tracking' game object and its 'HeadTracking' script component for the following values:-
@@ -64,3 +63,11 @@ The VTube Studio parameter values can be adjusted in the 'Eye Tracking' game obj
 - YLive2dMax
 
 The output values for X and Y can be inverted with toggles in the 'Eye Tracking' game object and its 'EyeTracking' script component.
+
+**Download and Install Instructions**
+------
+Download **'CameraOpticalFlowTrackingIntoVTubeStudio.zip'** from the latest version in **'Releases'** (found on the right side of the project page). Unzip the folder then add the project in the Unity Hub (tested with Unity 2021.3.0f1 other versions might still work).
+
+**Connecting to VTube Studio**
+------
+Ensure that in the settings of VTube Studio that the **'Start API'** (found in VTube Studio Pluggins) is turned on. In Unity this project should connect to VTubeStudio automatically once run, if this fails or becomes disconnected simply click the 'connect' button.
