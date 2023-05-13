@@ -16,7 +16,7 @@ Then by getting the average vector (pink) from each of the trackers we are able 
 
 Then converting those values to the respective VTube Studio parameters and sending them onto VTube Studio. 
 
-**Note:** Head tracking sensitiviy can be adjusted with the **Lambda** and **Threshold** sliders (sliders values are currently not saved after runtime so please change the defult slider values in the inspector after runtime to save the values). For more sensative camera tracking set the Lambda & Threshold slider values to 0.
+**Note:** Head tracking sensitivity can be adjusted with the **Lambda** and **Threshold** sliders (sliders values are currently not saved after runtime so please change the default slider values in the inspector after runtime to save the values). For more sensitive camera tracking set the Lambda & Threshold slider values to 0.
 
 **Note2:** Unfortunately at the moment slow camera movements create a greater optical flow value and therefore larger vectors than fast camera movements. Creating mismatched movement/tracking data in VTube Studio this still needs to be improved.
 
@@ -30,7 +30,7 @@ Eye tracking works by looks at the area on the video with the most motion. This 
 ------
 Tracking input can be either from Webcam or Video(.mp4 or other Unity supported video format). 
 
-**Webcam Input**: disable the 'Video Input' game object and enable the 'Webcam Input' game object and sellected the desired webcam in the webcam component found in the inspector.
+**Webcam Input**: disable the 'Video Input' game object and enable the 'Webcam Input' game object and selected the desired webcam in the webcam component found in the inspector.
 
 **Video Input**: disable the 'Webcam Input' game object and enable the 'Video Input' game object. And chose the desired video in the Video component found in the inspector. (Note: the video must be in the unity project's folder)
 
