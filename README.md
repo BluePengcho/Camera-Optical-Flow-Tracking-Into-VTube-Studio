@@ -70,4 +70,4 @@ Download **'CameraOpticalFlowTrackingIntoVTubeStudio.zip'** from the latest vers
 
 **Connecting to VTube Studio**
 ------
-Ensure that in the settings of VTube Studio that the **'Start API'** (found in VTube Studio Pluggins) is turned on. In Unity this project should connect to VTubeStudio automatically once run, if this fails or becomes disconnected simply click the 'connect' button.
+Ensure that in the settings of VTube Studio that the **'Start API'** (found in VTube Studio Pluggins) is turned on. In Unity this project should connect to VTube Studio automatically once run, if this fails or becomes disconnected simply click the **'Connect'** button.
