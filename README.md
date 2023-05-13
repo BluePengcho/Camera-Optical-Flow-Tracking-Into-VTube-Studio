@@ -2,7 +2,7 @@
 
 This project uses the [Unity3D-CameraOpticalFlow](https://github.com/Bonjour-Interactive-Lab/Unity3D-CameraOpticalFlow) unity package which is a GPU based optical flow system to generate movement data. Then converting this movement data into Head and Eye parameter values for use in VTube Studio. This project uses the wonderful [VTS-Sharp Library](https://github.com/FomTarro/VTS-Sharp) to interface with VTube Studio.    
 
-This project does not use OpenCV or any other imaging computer vision library, it mainly uses shaders to generate the data and seems to be resource light?? (this still needs more testing). 
+This project does not use OpenCV or any other imaging computer vision library, it mainly uses shaders to generate the tracking data. 
 
 **Head Tracking**
 ------
