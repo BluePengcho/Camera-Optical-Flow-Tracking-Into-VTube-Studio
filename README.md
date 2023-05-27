@@ -68,6 +68,6 @@ The output values for X and Y can be inverted with toggles in the 'Eye Tracking'
 ------
 Download **'CameraOpticalFlowTrackingIntoVTubeStudio.zip'** from the latest version in **'Releases'** (found on the right side of the project page). Unzip the folder then add the project in the Unity Hub (tested with Unity 2021.3.0f1 other versions might still work).
 
-**Connecting to VTube Studio** 
+**Connecting to VTube Studio**
 ------
 Ensure that in the settings of VTube Studio the **'Start API'** (found in VTube Studio Pluggins) is turned on. In Unity this project should connect to VTube Studio automatically once run, if this fails or becomes disconnected simply click the **'Connect'** button.
