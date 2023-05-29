@@ -6,7 +6,7 @@ This project does not use OpenCV or any other imaging computer vision library, i
 
 **Download and Install Instructions**
 ------
-Download **'CameraOpticalFlowTrackingIntoVTubeStudio.zip'** from the latest version in **'Releases'** (found on the right side of the project page). Or alternatively download the code as **'Download Zip'**. Unzip the folder then add the project in the Unity Hub (tested with Unity 2021.3.0f1 other versions might still work).
+Download **'CameraOpticalFlowTrackingIntoVTubeStudio.zip'** from the latest version in **'Releases'** (found on the right side of the project page). Or alternatively download the code as **'Download Zip'**. Unzip the folder then add the project in the Unity Hub (tested with Unity 2021.3.0f1 other versions might still work). Run in Unity and open the 'CameraOpticalFlowTracking' Scene in the Scenes folder.
 
 **Head Tracking**
 ------
