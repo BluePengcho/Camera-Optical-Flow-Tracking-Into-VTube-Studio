@@ -36,7 +36,7 @@ Tracking input can be either from Webcam or Video(.mp4 or other Unity supported 
 
 **OBS Capture** 
 ------
-For OBS capture it is recommended to use the **Webcam Input** method and feed in the webcam input into both OBS and Unity simultaneously for capture. The **Video Input** method is not recommended as in OBS you would have to use game capture on the Unity project which would still display the UI, you could remove the UI objects in the inspector and in the code. Or alternatively you could add a video/camera output plug-in/code for Unity (E.g. Spout or NDI) and capture the output feed in OBS.
+For OBS capture it is recommended to use the **Webcam Input** method and feed in the webcam input into both OBS and Unity simultaneously for capture. The **Video Input** method is not recommended as in OBS you would have to use game capture on the Unity project which would still display the UI, you could remove the UI objects in the inspector and in the code. Or alternatively you could add a video/camera output plug-in/code in Unity (E.g. Spout or NDI) and capture the output feed in OBS.
 
 **Head Tracking Configurable Settings**
 ------
