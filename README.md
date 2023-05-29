@@ -4,6 +4,10 @@ This project uses the [Unity3D-CameraOpticalFlow](https://github.com/Bonjour-Int
 
 This project does not use OpenCV or any other imaging computer vision library, it mainly uses shaders to generate the tracking data. 
 
+**Download and Install Instructions**
+------
+Download **'CameraOpticalFlowTrackingIntoVTubeStudio.zip'** from the latest version in **'Releases'** (found on the right side of the project page). Unzip the folder then add the project in the Unity Hub (tested with Unity 2021.3.0f1 other versions might still work).
+
 **Head Tracking**
 ------
 Head tracking works by generating 5 separate optical flow textures each only a small section of the video at the designated locations (and at a reduced resolution to increase performance). Then by computing the average velocity at each location we get the XY vector tracker for that location (when there is no movement the tracker returns to X0,Y0).
@@ -67,10 +71,6 @@ The VTube Studio parameter values can be adjusted in the 'Eye Tracking' game obj
 - YLive2dMax
 
 The output values for X and Y can be inverted with toggles in the 'Eye Tracking' game object and its 'EyeTracking' script component.
-
-**Download and Install Instructions**
-------
-Download **'CameraOpticalFlowTrackingIntoVTubeStudio.zip'** from the latest version in **'Releases'** (found on the right side of the project page). Unzip the folder then add the project in the Unity Hub (tested with Unity 2021.3.0f1 other versions might still work).
 
 **Connecting to VTube Studio** 
 ------
