@@ -92,6 +92,22 @@ Eye Tracking Configurable Settings
 
 - The **Eye Speed** movement and **Eye Smoothness** can also be adjusted in the tracking settings.
 
+**Testing and calibrating** 
+------
+Recommend testing and calibrating the settings with the RTMP/RTSP/URL video input using these walkabout videos hosted on archive.org. 
+**Note: Copy and paste the URL including the "https://"**
+
+Walkabout Akihabara Japan - https://ia804700.us.archive.org/19/items/youtube-s-cWkQuy34s/s-cWkQuy34s.mp4
+
+Walkabout in a quite Japanese neighbourhood - https://ia904709.us.archive.org/32/items/youtube-uCaM1DRgm6g/uCaM1DRgm6g.mp4
+
+Walkabout Japanese countryside shopping area - https://ia801609.us.archive.org/2/items/youtube-SebpLpUvHOQ/SebpLpUvHOQ.mp4
+
+Walkabout in Kawagoe Saitama Japan - https://ia804702.us.archive.org/34/items/youtube-x1lXgESxjEY/x1lXgESxjEY.mp4
+
+
+
+
 **Connecting to VTube Studio** 
 ------
 Ensure that in the settings of VTube Studio the **'Start API'** (found in VTube Studio Pluggins) is turned on. In Unity this project should connect to VTube Studio automatically once run, if this fails or becomes disconnected simply click the **'Connect'** button. It is recommended to leave the 'Auto (Re)Connect' for VTube Studio on.
