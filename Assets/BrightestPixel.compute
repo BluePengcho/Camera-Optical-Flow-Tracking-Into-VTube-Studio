@@ -1,0 +1,89 @@
+#pragma kernel MaximumMain
+
+Texture2D<float4> InputTexture;
+int InputTextureWidth;
+
+struct maxStruct
+{
+	uint xMax; // column of maximum
+	uint yMax; // row of maximum
+	uint lMax; // luminance of maximum (0, ..., 1023)
+};
+
+RWStructuredBuffer<maxStruct> GroupMaxBuffer;
+
+groupshared maxStruct rowMaxData[64];
+
+[numthreads(64, 1, 1)]
+void MaximumMain(uint3 groupID : SV_GroupID,
+	// 3D ID of thread group; range depends on Dispatch call
+	uint3 groupThreadID : SV_GroupThreadID,
+	// 3D ID of thread in a thread group; range depends on numthreads
+	uint groupIndex : SV_GroupIndex,
+	// flattened/linearized SV_GroupThreadID. 
+	// groupIndex specifies the index within the group (0 to 63)
+	uint3 id : SV_DispatchThreadID)
+	// = SV_GroupID * numthreads + SV_GroupThreadID
+	// id.x specifies the row in the input texture image
+{
+	int column;
+
+	// find the maximum of this row 
+	// and store its data in rowMaxData[groupIndex]
+	rowMaxData[groupIndex].xMax = 0;
+	rowMaxData[groupIndex].yMax = id.x;
+	rowMaxData[groupIndex].lMax = 0;
+	for (column = 0; column < InputTextureWidth; column++)
+	{
+		float4 color = InputTexture[uint2(column, id.x)];
+		uint luminance = (uint)(1023.0 *
+			(0.21 * color.r + 0.72 * color.g + 0.07 * color.b));
+		if (luminance > rowMaxData[groupIndex].lMax)
+		{
+			rowMaxData[groupIndex].xMax = column;
+			rowMaxData[groupIndex].lMax = luminance;
+		}
+	}
+
+	// find the maximum of this group
+	// and store its data in GroupMaxBuffer[groupID.x]
+	GroupMemoryBarrierWithGroupSync();
+	// we have to wait for all writes to rowMaxData by the group's threads
+	if (0 == (groupIndex & 1)) { // is groupIndex even?
+		if (rowMaxData[groupIndex + 1].lMax > rowMaxData[groupIndex].lMax) {
+			rowMaxData[groupIndex] = rowMaxData[groupIndex + 1];
+		}
+	}
+	GroupMemoryBarrierWithGroupSync();
+	if (0 == (groupIndex & 3)) { // is groupIndex divisible by 4?
+		if (rowMaxData[groupIndex + 2].lMax > rowMaxData[groupIndex].lMax) {
+			rowMaxData[groupIndex] = rowMaxData[groupIndex + 2];
+		}
+	}
+	GroupMemoryBarrierWithGroupSync();
+	if (0 == (groupIndex & 7)) { // is groupIndex divisible by 8?
+		if (rowMaxData[groupIndex + 4].lMax > rowMaxData[groupIndex].lMax) {
+			rowMaxData[groupIndex] = rowMaxData[groupIndex + 4];
+		}
+	}
+	GroupMemoryBarrierWithGroupSync();
+	if (0 == (groupIndex & 15)) { // is groupIndex divisible by 16?
+		if (rowMaxData[groupIndex + 8].lMax > rowMaxData[groupIndex].lMax) {
+			rowMaxData[groupIndex] = rowMaxData[groupIndex + 8];
+		}
+	}
+	GroupMemoryBarrierWithGroupSync();
+	if (0 == (groupIndex & 31)) { // is groupIndex divisible by 32?
+		if (rowMaxData[groupIndex + 16].lMax > rowMaxData[groupIndex].lMax) {
+			rowMaxData[groupIndex] = rowMaxData[groupIndex + 16];
+		}
+	}
+	GroupMemoryBarrierWithGroupSync();
+	if (0 == (groupIndex & 63)) { // is groupIndex divisible by 64?
+		if (rowMaxData[groupIndex + 32].lMax > rowMaxData[groupIndex].lMax) {
+			rowMaxData[groupIndex] = rowMaxData[groupIndex + 32];
+		}
+		GroupMaxBuffer[groupID.x] = rowMaxData[groupIndex];
+		// copy maximum of group to buffer
+	}
+}
