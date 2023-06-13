@@ -2,7 +2,7 @@
 
 This project uses the [Unity3D-CameraOpticalFlow](https://github.com/Bonjour-Interactive-Lab/Unity3D-CameraOpticalFlow) unity package which is a GPU based optical flow system to generate movement data. Then converting this movement data into Head and Eye parameter values for use in VTube Studio. This project uses the wonderful [VTS-Sharp Library](https://github.com/FomTarro/VTS-Sharp) to interface with VTube Studio. 
 
-This project also uses the following GitHub projects (these are already included in the project, there is no need add them):-
+This project also uses the following GitHub projects (these are already included in the project there is no need add them):-
 - [Spout4Unity](https://github.com/sloopidoopi/Spout4Unity) - receive and share textures using the Spout2SDK for Unity. 
 - [UnityVLCPlayer](https://github.com/bosqmode/UnityVLCPlayer) - a minimalist libvlc player for Unity.
 
